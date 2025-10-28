@@ -21,6 +21,7 @@ gdown.download(url, output, quiet=False)
 
 @st.cache_data(persist=True)
 def load_model():
+    model = None
     try:
         model = joblib.load(output)
     except Exception:
@@ -93,4 +94,5 @@ if btn1:
                 f"""<p style="font-size: 26px; font-weight: bold;">
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
+
                 , unsafe_allow_html=True)
