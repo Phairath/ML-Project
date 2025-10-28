@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pdhttps://github.com/Phairath/ML-Project/blob/main/demo_web.py
+import pandas as pd
 import numpy as np
 from datetime import date
 import joblib
@@ -95,3 +95,4 @@ if btn1:
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
                 , unsafe_allow_html=True)
+
