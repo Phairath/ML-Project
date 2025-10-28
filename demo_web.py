@@ -19,7 +19,7 @@ def load_model():
     try:
         file_id = '1D5wXF0ISvuwkIWtfv-IIPhJ3_rXCMQR3'
         url = f'https://drive.google.com/uc?id={file_id}'
-        output = 'model.joblib'
+        output = 'xgb_best_model.joblib'
         gdown.download(url, output, quiet=False)
         model = joblib.load(./output)
         # return model
@@ -95,4 +95,5 @@ if btn1:
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
 
                 , unsafe_allow_html=True)
+
 
