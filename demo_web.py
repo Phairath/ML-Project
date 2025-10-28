@@ -59,8 +59,8 @@ with cols[2]:
     perishable = st.selectbox('Perishable',('Yes','No'))
 
 btn1 = st.button('Predict!')
-model = load_model()
 if btn1:
+    model = load_model()
     onpromotion = 1 if onpromotion == 'Yes' else 0
     perishable = 1 if perishable == 'Yes' else 0
     is_holiday = 1 if is_holiday == 'Yes' else 0 
@@ -94,5 +94,6 @@ if btn1:
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
                 , unsafe_allow_html=True)
+
 
 
