@@ -21,15 +21,11 @@ def load_model():
         url = f'https://drive.google.com/uc?id={file_id}'
         output = 'model.joblib'
         gdown.download(url, output, quiet=False)
-        res = gdown.download(url, output, quiet=False)
-        if res and os.path.exists(output):
-            model = joblib.load(output)
-            print("✅ Model loaded successfully!")
-        else:
-            print("❌ Download failed or file not found.")
+        model = joblib.load(output)
+        return model
     except Exception:
         st.markdown('<span style="color: red; font-size: 20px;">\***An error occurred while loading the model**</span> ', unsafe_allow_html=True)
-    return model
+    # return model
 
 st.markdown('#### **Input your data for predict**')
 cols = st.columns(3)
@@ -97,4 +93,5 @@ if btn1:
                 f"""<p style="font-size: 26px; font-weight: bold;">
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
+
                 , unsafe_allow_html=True)
