@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from datetime import date
 import joblib
-import gdown
+import gdown,os
 
 st.set_page_config(
     page_title = 'Machine Learning',
@@ -21,7 +21,12 @@ def load_model():
         url = f'https://drive.google.com/uc?id={file_id}'
         output = 'model.joblib'
         gdown.download(url, output, quiet=False)
-        model = joblib.load(output)
+        res = gdown.download(url, output, quiet=False)
+        if res and os.path.exists(output):
+            model = joblib.load(output)
+            print("✅ Model loaded successfully!")
+        else:
+            print("❌ Download failed or file not found.")
     except Exception:
         st.markdown('<span style="color: red; font-size: 20px;">\***An error occurred while loading the model**</span> ', unsafe_allow_html=True)
     return model
