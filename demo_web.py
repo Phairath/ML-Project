@@ -78,11 +78,10 @@ if btn1:
     x_new[['perishable','is_holiday','day_of_week','day','month','is_weekend','onpromotion']] = x_new[['perishable','is_holiday','day_of_week','day','month','is_weekend','onpromotion']].astype('int8')
     x_new['year'] = x_new['year'].astype('int16')
     x_new['dcoilwtico'] = x_new['dcoilwtico'].astype('float32')
-    prediction = xgb_model.predict(x_new)
+    prediction = model.predict(x_new)
     prediction = np.maximum(0,prediction)
     st.markdown(
                 f"""<p style="font-size: 26px; font-weight: bold;">
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
-
                 , unsafe_allow_html=True)
