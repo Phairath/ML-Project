@@ -21,7 +21,7 @@ def load_model():
         url = f'https://drive.google.com/uc?id={file_id}'
         output = 'xgb_best_model.joblib'
         gdown.download(url, output, quiet=False)
-        model = joblib.load(./output)
+        model = joblib.load('./xgb_best_model.joblib')
         # return model
     except Exception:
         st.markdown('<span style="color: red; font-size: 20px;">\***An error occurred while loading the model**</span> ', unsafe_allow_html=True)
@@ -95,5 +95,6 @@ if btn1:
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
 
                 , unsafe_allow_html=True)
+
 
 
