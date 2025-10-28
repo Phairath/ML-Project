@@ -18,15 +18,7 @@ file_id = '1D5wXF0ISvuwkIWtfv-IIPhJ3_rXCMQR3'
 url = f'https://drive.google.com/uc?id={file_id}'
 output = 'model.joblib'
 gdown.download(url, output, quiet=False)
-
-@st.cache_data(persist=True)
-def load_model():
-    model = None
-    try:
-        model = joblib.load(output)
-    except Exception:
-        st.markdown('<span style="color: red; font-size: 20px;">\***An error occurred while loading the model**</span> ', unsafe_allow_html=True)
-    return model
+model = joblib.load(output)
 
 st.markdown('#### **Input your data for predict**')
 cols = st.columns(3)
@@ -57,10 +49,8 @@ with cols[2]:
     item_nbr = st.number_input('Item Number',min_value=1000866,value=1000866)
     family = st.selectbox('Item Type',(family_name))
     perishable = st.selectbox('Perishable',('Yes','No'))
-    
 
 btn1 = st.button('Predict!')
-xgb_model = load_model()
 if btn1:
     onpromotion = 1 if onpromotion == 'Yes' else 0
     perishable = 1 if perishable == 'Yes' else 0
@@ -96,4 +86,3 @@ if btn1:
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
 
                 , unsafe_allow_html=True)
-
