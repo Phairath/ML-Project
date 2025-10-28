@@ -1,5 +1,5 @@
 gdown==5.2.0
-keras==3.11.3
+joblib==1.4.2
 Markdown==3.7
 markupsafe==3.0.2
 numpy==2.2.3
