@@ -1,0 +1,7 @@
+gdown==5.2.0
+keras==3.11.3
+Markdown==3.7
+markupsafe==3.0.2
+numpy==2.2.3
+pandas==2.2.3
+streamlit==1.43.2
