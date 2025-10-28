@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from datetime import date
 import joblib
+import gdown
 
 st.set_page_config(
     page_title = 'Machine Learning',
@@ -16,7 +17,11 @@ st.title('🛒 Favorita Grocery Sales Forecasting')
 @st.cache_data(persist=True)
 def load_model():
     try:
-        model = joblib.load('./model/xgb_best_model.joblib')
+        file_id = '1D5wXF0ISvuwkIWtfv-IIPhJ3_rXCMQR3'
+        url = f'https://drive.google.com/uc?id={file_id}'
+        output = 'model.joblib'
+        gdown.download(url, output, quiet=False)
+        model = joblib.load(output)
     except Exception:
         st.markdown('<span style="color: red; font-size: 20px;">\***An error occurred while loading the model**</span> ', unsafe_allow_html=True)
     return model
