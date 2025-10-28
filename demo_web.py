@@ -54,7 +54,7 @@ family_name = ['GROCERY I', 'CLEANING', 'BREAD/BAKERY', 'DELI', 'POULTRY', 'EGGS
 
 with cols[2]:
     # st.write('Item Information')
-    item_nbr = st.number_input('Item Number',min_value=1000866,value=1000866)
+    item_nbr = st.number_input('Item Number',min_value=1,value=1)
     family = st.selectbox('Item Type',(family_name))
     perishable = st.selectbox('Perishable',('Yes','No'))
 
@@ -94,6 +94,7 @@ if btn1:
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
                 , unsafe_allow_html=True)
+
 
 
 
