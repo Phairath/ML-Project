@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd
+import pandas as pdhttps://github.com/Phairath/ML-Project/blob/main/demo_web.py
 import numpy as np
 from datetime import date
 import joblib
@@ -18,7 +18,9 @@ file_id = '1D5wXF0ISvuwkIWtfv-IIPhJ3_rXCMQR3'
 url = f'https://drive.google.com/uc?id={file_id}'
 output = 'model.joblib'
 gdown.download(url, output, quiet=False)
-
+if not os.path.exists(output):
+    gdown.download(url, output, quiet=False)
+    
 @st.cache_data(persist=True)
 def load_model():
     try:
