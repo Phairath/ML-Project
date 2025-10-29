@@ -16,7 +16,7 @@ st.title('🛒 Favorita Grocery Sales Forecasting')
 
 file_id = '1D5wXF0ISvuwkIWtfv-IIPhJ3_rXCMQR3'
 url = f'https://drive.google.com/uc?id={file_id}'
-output = './model/xgb_best_model.joblib'
+output = 'xgb_best_model.joblib'
 if not os.path.exists(output):
     gdown.download(url, output, quiet=False)
 
@@ -113,4 +113,5 @@ if btn1:
                 f"""<p style="font-size: 26px; font-weight: bold;">
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
+
                 , unsafe_allow_html=True)
