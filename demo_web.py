@@ -14,9 +14,13 @@ st.set_page_config(
 
 st.title('🛒 Favorita Grocery Sales Forecasting')
 
+st.sidebar.success('**Explore** the [Favorita Grocery Sales Dataset](%s)' %'https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting/data')
+st.sidebar.success('**Created by**  \nนายณัฐชนน นุ่มคง 6604062630170  \nนายไพรัช จรัสนภารัตน์ 6604062630382  \nSEC.2')
+st.sidebar.success("**Powered by** [Streamlit](https://streamlit.io/)")
+
 file_id = '1D5wXF0ISvuwkIWtfv-IIPhJ3_rXCMQR3'
 url = f'https://drive.google.com/uc?id={file_id}'
-output = 'xgb_best_model.joblib'
+output = './model/xgb_best_model.joblib'
 if not os.path.exists(output):
     gdown.download(url, output, quiet=False)
 
@@ -71,7 +75,6 @@ with cols[2]:
     family = st.selectbox('Item Type',(FAMILY_NAME))
     perishable = st.selectbox('Perishable',('Yes','No'))
 
-
 onpromotion = 1 if onpromotion == 'Yes' else 0
 perishable = 1 if perishable == 'Yes' else 0
 is_holiday = 1 if is_holiday == 'Yes' else 0 
@@ -113,5 +116,4 @@ if btn1:
                 f"""<p style="font-size: 26px; font-weight: bold;">
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
-
                 , unsafe_allow_html=True)
