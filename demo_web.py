@@ -107,6 +107,7 @@ x_new['city'] = pd.Categorical(x_new['city'],categories=CITY_NAME)
 x_new['family'] = pd.Categorical(x_new['family'],categories=FAMILY_NAME)
 x_new['item_nbr'] = pd.Categorical(x_new['item_nbr'],categories=items['item_nbr'].cat.categories)
 st.write(x_new)
+st.write((os.getcwd()))
 
 btn1 = st.button('Predict!')
 if btn1:
