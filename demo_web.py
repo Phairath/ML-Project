@@ -25,7 +25,7 @@ output = 'xgb_best_model.joblib'
 if not os.path.exists(output):
     gdown.download(url, output, quiet=False)
 
-@st.cache_resource(persist=True)
+@st.cache_resource()
 def load_model():
     try:
         model = joblib.load(output)
@@ -118,4 +118,5 @@ if btn1:
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
                 , unsafe_allow_html=True)
+
 
