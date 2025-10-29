@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 from datetime import date
 import joblib
-import gdown,os
+import gdown
+import os
 
 st.set_page_config(
     page_title = 'Machine Learning',
@@ -116,5 +117,4 @@ if btn1:
                 f"""<p style="font-size: 26px; font-weight: bold;">
                 <span style="color: black;">Predicted Unit Sales: </span>
                 <span style="color: green;">{prediction[0]:.5f} pieces/kg</span></p>""" 
-
                 , unsafe_allow_html=True)
